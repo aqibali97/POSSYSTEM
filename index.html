@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React POS System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background-color: #111827; /* bg-gray-900 */
+        color: #f3f4f6; /* text-gray-200 */
+      }
+      
+      /* Ensure receipt text is black and visible on screen */
+      #bill-modal-content, #bill-modal-content * {
+        color: black;
+      }
+
+      @media print {
+        body * {
+          visibility: hidden;
+        }
+
+        /* --- Bill Printing --- */
+        #bill-modal-content, #bill-modal-content * {
+          visibility: visible;
+          color: black !important;
+        }
+        #bill-modal-content {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          background-color: white !important;
+          font-family: Arial, sans-serif;
+          font-size: 12pt;
+        }
+        
+        /* --- Report Printing --- */
+        #report-print-modal-content, #report-print-modal-content * {
+            visibility: visible;
+        }
+        
+        #report-print-modal-content {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            font-family: Arial, sans-serif !important;
+            font-size: 9pt !important;
+            background: white !important;
+        }
+
+        #report-print-modal-content p,
+        #report-print-modal-content span,
+        #report-print-modal-content div,
+        #report-print-modal-content h1,
+        #report-print-modal-content h3 {
+            color: black !important;
+            background: transparent !important;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        #report-print-modal-content h1,
+        #report-print-modal-content h3,
+        #report-print-modal-content .font-bold {
+            font-weight: bold !important;
+        }
+
+        #report-print-modal-content .text-green-700 {
+            color: #047857 !important;
+        }
+        
+        #report-print-modal-content .summary-card {
+            border: 1px solid black !important;
+        }
+        
+        #report-print-modal-content .sale-summary-row {
+            border-top: 1px solid black !important;
+            background-color: #f3f4f6 !important;
+        }
+        
+        #report-print-modal-content .sale-details-wrapper {
+            padding: 0 !important;
+        }
+        
+        #report-print-modal-content .item-details-table {
+            margin: 5px 20px 10px 20px;
+        }
+        
+        #report-print-modal-content .item-details-table .flex {
+             border-bottom: 1px solid #ccc !important;
+        }
+        
+        #report-print-modal-content .text-right {
+            text-align: right !important;
+        }
+        
+        #report-print-modal-content .text-center {
+            text-align: center !important;
+        }
+
+        .no-print {
+          display: none !important;
+        }
+      }
+      
+      @keyframes fadeInOut {
+        0% { opacity: 0; transform: translateY(10px); }
+        10%, 90% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(10px); }
+      }
+      .animate-fade-in-out {
+        animation: fadeInOut 3s ease-in-out forwards;
+      }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "vite": "https://aistudiocdn.com/vite@^7.1.12",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.0",
+    "electron": "https://aistudiocdn.com/electron@^39.0.0",
+    "path": "https://aistudiocdn.com/path@^0.12.7",
+    "process": "https://aistudiocdn.com/process@^0.11.10"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"></script>
+    <script type="module" src="./index.tsx"></script>
+  </body>
+</html>

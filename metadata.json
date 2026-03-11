@@ -1,0 +1,5 @@
+{
+  "name": "React POS System Final With Day Book",
+  "description": "A comprehensive Point of Sale (POS) application built with React. Features include a barcode-ready cart system, printable customer bills, inventory management with local image uploads, a browsable product catalog with categories, and detailed sales and profit reporting. All data is saved locally in your browser.",
+  "requestFramePermissions": []
+}
